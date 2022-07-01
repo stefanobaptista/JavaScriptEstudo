@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body{
+            font: normal 12pt Arial;
+        } 
+        div#painel{
+            padding-top: 30px;
+        }
+        div#painel strong{
+            color: red;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    <input type="number" name="tvel" id="tvel">   Km/h
+    <input type="button" value="Verificar" onclick="verificar()">
+    <div id="painel">
+        
+    </div>
+
+    <script>
+        function verificar(){
+            var tvel = window.document.getElementById('tvel')
+            var painel = window.document.getElementById('painel')
+            vel = Number(tvel.value)
+            var acima = vel - 60
+            var teste = painel.value
+            if (vel > 60){
+                painel.innerHTML = `Sua velocidade foi de ${acima}km/h acima do permitido`
+                painel.innerHTML += '<p>Você foi <strong>multado</strong></p>'
+            }
+        }
+    </script>
+</body>
+</html>
